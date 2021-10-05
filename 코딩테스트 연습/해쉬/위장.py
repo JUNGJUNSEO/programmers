@@ -1,10 +1,7 @@
 def solution(clothes):
     d = dict()
     for _, kind in clothes:
-        if kind in d:
-            d[kind] += 1
-        else:
-            d[kind] = 1
+        d[kind] = d.get(kind, 0) + 1
     a = list(d.values())
     answer = 1
     for cnt in a:

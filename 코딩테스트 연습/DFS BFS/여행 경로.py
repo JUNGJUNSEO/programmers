@@ -1,10 +1,13 @@
+from collections import defaultdict
+
+
 def solution(tickets):
-    d = dict()
-    check = dict()
+    d = defaultdict(list)
+    check = defaultdict(int)
     for citys in tickets:
-        check[str(citys)] = check.get(str(citys), 0) + 1
+        check[str(citys)] += 1
     for city_1, city_2 in tickets:
-        d[city_1] = d.get(city_1, []) + [city_2]
+        d[city_1].append(city_2)
         d[city_1].sort()
 
     def dfs(city_1, cnt):
